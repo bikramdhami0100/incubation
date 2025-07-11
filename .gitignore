@@ -2,6 +2,11 @@
 # frontend/
 # or
 # *
-**.env.local
-**.env
-**.env.example
+# Ignore all .env files recursively
+**/.env
+**/.env.*
+
+# Optional: Ignore specific examples if needed
+# **/.env.local
+# **/.env.production
+# **/.env.development
