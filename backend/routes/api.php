@@ -30,7 +30,6 @@ use App\Http\Controllers\ContactController;
 Route::post('/signup', [AdminController::class, 'register'])->name('api.signup');
 Route::group(['middleware' => 'auth:sanctum'], function () {
 
-  // dashboard
     // Route::get('/dashboard', [AdminController::class, 'index'])->name('api.dashboard');
     // News CRUD API routes
 Route::post('/news', [NewsController::class, 'store'])->name('api.news');
