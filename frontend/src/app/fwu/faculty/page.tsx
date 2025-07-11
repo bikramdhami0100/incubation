@@ -834,13 +834,13 @@ export default function FacultyPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               <Link
-                href="/programs"
+                href="/fwu/notice"
                 className="bg-white text-indigo-900 hover:bg-indigo-50 font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 transform"
               >
-                Explore Programs
+                Explore Notice
               </Link>
               <Link
-                href="/apply"
+                href="/fwu/apply"
                 className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 transform"
               >
                 Apply Now

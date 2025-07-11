@@ -162,7 +162,7 @@ console.log(`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}news/${news.news_photo}`);
                 onClick={() => typeof window !== 'undefined' && window.open(`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/news/${news.news_photo}`, '_blank')}
                 src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/news/${news.news_photo}`}
                 alt={news.title || 'News article image'}
-                className="object-cover w-full h-full"
+                className="object-cover cursor-pointer w-full h-full"
                 onError={handleImageError}
                 priority
               />

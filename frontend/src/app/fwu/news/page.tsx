@@ -172,21 +172,7 @@ export default function NewsPage() {
         // searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
       />
-      {!apiResponse ||
-        (apiResponse?.data.length === 0 && (
-          <>
-            <main className="bg-white min-h-screen flex items-center justify-center">
-              <div className="text-center">
-                <h2 className="text-2xl font-bold text-red-600 mb-4">
-                  No News Found
-                </h2>
-                <p className="text-gray-600">
-                  No news found for the selected category or search term.
-                </p>
-              </div>
-            </main>
-          </>
-        ))}
+     
       {/* Category Filter */}
       <NewsCategoryFilter
         categories={uniqueCategories}
@@ -219,7 +205,7 @@ export default function NewsPage() {
             )}
           </div>
 
-          {apiResponse ? (
+          {apiResponse ?(
             <div className=" mx-auto grid grid-cols-1 lg:grid-cols-3 gap-3   space-y-8">
               {filterData && filterData.length !== 0
                 ? filterData.map((item) => (
