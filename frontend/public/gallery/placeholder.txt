@@ -1,0 +1,17 @@
+This is a placeholder file. In a real application, you would have actual image files here.
+
+For the gallery to work properly, you would need to add the following images:
+- incubation-1.jpg
+- incubation-2.jpg
+- incubation-3.jpg
+- incubation-4.jpg
+- incubation-5.jpg
+- incubation-6.jpg
+- conference-1.jpg
+- conference-2.jpg
+- workshop-1.jpg
+- workshop-2.jpg
+- mou-1.jpg
+- mou-2.jpg
+
+These images would typically be photos from your incubation center events, workshops, and partnerships.
