@@ -267,11 +267,13 @@ function ApplicantsPage() {
       );
       console.log(response);
       toast.success(response.data.message);
+
     } catch (error) {
       console.log(error);
       toast.error(error instanceof Error ? error.message : String(error));
     } finally {
       refetch();
+      setSelectActions({ actionType: "", selectedApplicants: null });
       setLoader(false);
     }
   }
@@ -307,7 +309,7 @@ function ApplicantsPage() {
       )}
 
 {seletActions?.actionType === "delete" && (
-  <AlertDialog open>
+  <AlertDialog open={seletActions?.actionType === "delete"?true:false} >
     <AlertDialogContent className="bg-white border border-red-200 shadow-xl rounded-3xl p-8 max-w-lg text-center">
       <AlertDialogHeader className="flex flex-col items-center gap-4">
         <div className="bg-red-100 text-red-600 p-4 rounded-full animate-pulse">

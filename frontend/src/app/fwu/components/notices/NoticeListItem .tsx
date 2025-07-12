@@ -184,13 +184,13 @@ console.log(notice)
             {!notice.file && <div></div>}
 
             {/* Update Info */}
-            {notice.createdAt !== notice.updatedAt && (
+            {/* {notice.createdAt !== notice.updatedAt && (
               <div className="text-sm">
                 <span className="bg-gradient-to-r from-yellow-100 to-orange-100 text-orange-800 px-3 py-1.5 rounded-full font-medium border border-orange-200">
                   Updated: {new Date(notice.updatedAt).toLocaleDateString()}
                 </span>
               </div>
-            )}
+            )} */}
           </div>
         </div>
 

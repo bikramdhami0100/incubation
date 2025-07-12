@@ -12,6 +12,7 @@ use App\Http\Controllers\IncubationEmailController;
 use App\Http\Controllers\ApplicantStatusEmailController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminProfileController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,7 +30,11 @@ use App\Http\Controllers\ContactController;
 
 Route::post('/signup', [AdminController::class, 'register'])->name('api.signup');
 Route::group(['middleware' => 'auth:sanctum'], function () {
-
+// admin profile update 
+// Route::get('/profile', [AdminProfileController::class, 'show'])->name('api.profile');
+// Route::post('/profileData/{id}', [AdminProfileController::class, 'update'])->name('api.profile.update');
+// Route::put('/profile-image', [AdminProfileController::class, 'changeImage'])->name('api.change-email');
+// Route::post('/change-password', [AdminProfileController::class, 'changePassword'])->name('api.change-password');
     // Route::get('/dashboard', [AdminController::class, 'index'])->name('api.dashboard');
     // News CRUD API routes
 Route::post('/news', [NewsController::class, 'store'])->name('api.news');
@@ -60,6 +65,11 @@ Route::put('/gallery/{id}', [GalleryImageController::class, 'update'])->name('ap
 Route::delete('/gallery/{id}', [GalleryImageController::class, 'destroy'])->name('api.gallery.destroy');
 //contact API routes
 Route::delete('/contact/{id}', [ContactController::class, 'deleteData'])->name('api.contact');
+ // validate admin 
+ Route::get('/profile', [AdminProfileController::class, 'show'])->name('api.profile');
+Route::post('/profileData/{id}', [AdminProfileController::class, 'update'])->name('api.profile.update');
+Route::post('/profileImage/{id}', [AdminProfileController::class, 'changeImage'])->name('api.changeImage');
+Route::post('/changePassword/{id}', [AdminProfileController::class, 'changePassword'])->name('api.changePassword');
 
 });
 
@@ -123,3 +133,8 @@ Route::get('/contact', [ContactController::class, 'index'])->name('api.contact')
 Route::get('/dashboard', [AdminController::class, 'index'])->name('api.dashboard');
 // fetching a valide admin
 Route::get('/admin', [AdminController::class, 'show'])->name('api.admin');
+// fetching a valide admin
+// Route::get('/profile', [AdminProfileController::class, 'show'])->name('api.profile');
+// Route::post('/profileData/{id}', [AdminProfileController::class, 'update'])->name('api.profile.update');
+// Route::post('/profileImage/{id}', [AdminProfileController::class, 'changeImage'])->name('api.changeImage');
+// Route::post('/changePassword/{id}', [AdminProfileController::class, 'changePassword'])->name('api.changePassword');

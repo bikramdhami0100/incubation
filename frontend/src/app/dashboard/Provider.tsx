@@ -3,10 +3,12 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import React from "react";
 import { DashBoardSidebar } from "./_components/DashBoardSidebar";
 import DashboardHeader from "./_components/DashboardHeader";
+import AdminContextProvider from "@/contexts/AdminContext";
 
 function DashboardProvider({ children }: { children: React.ReactNode }) {
  
   return (
+    <AdminContextProvider>
     <SidebarProvider>
       <DashBoardSidebar />
       <div className="w-full bg-gray-200">
@@ -16,6 +18,7 @@ function DashboardProvider({ children }: { children: React.ReactNode }) {
         <div className="">{children}</div>
       </div>
     </SidebarProvider>
+    </AdminContextProvider>
   );
 }
 

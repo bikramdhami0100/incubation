@@ -148,43 +148,14 @@ class ApplicantController extends Controller
             Storage::disk('public')->delete('applicants/'.$photo);
 
         }
-        // if($applicant->members){
-        //     $members=json_decode($applicant->members,true);
-        //     foreach($members as $member){
-        //         if($member->photo){
-        //             $path=public_path('storage/applicants/'.$member->photo);
-        //             if(file_exists($path)){
-        //                 unlink($path);
-        //             }
-        //         }
-        //     }
-        // }
-
-        // $applicant->delete();
-        // Applicant::destroy($id);
-        // $applicant->delete();
+       Applicant::destroy($id);
         return [
             'message' => 'Applicant deleted successfully',
             'id' => $id,
-            $applicant
+            // $applicant
 
         ];
     }
-    public function show($id)
-    {
-        return 'Applicant show';
-    }
-    public function create()
-    {
-        return 'Applicant create';
-    }
-    public function edit($id)
-    {
-        return 'Applicant edit';
-    }
-    public function view($id)
-    {
-        return 'Applicant view';
-    }
+
 
 }

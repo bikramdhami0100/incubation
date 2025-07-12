@@ -18,7 +18,9 @@ class AdminController extends Controller
     public function show()  {
          
         $admins=Admin::all();
-        return $admins;
+        return [
+            'admins' => $admins
+        ];
 
     }
     // index 
@@ -148,6 +150,7 @@ class AdminController extends Controller
         //     return ['ok' => false,'error'=>'Invalid token'];
         // }
         $admin=Admin::where('email',$request->email)->first();
+        $admin->email_verified=1;
         if($admin){
             
             $admin->password=bcrypt($request->password);

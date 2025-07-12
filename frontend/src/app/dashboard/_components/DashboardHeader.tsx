@@ -4,15 +4,18 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
+  // DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Bell, LogOut } from "lucide-react";
+import {  LogOut } from "lucide-react";
 import Image from "next/image";
 import axios from "axios";
 import { removeCookie } from "@/app/fwucontext/CustomCookies";
+import Link from "next/link";
+import { useAdminContext } from "@/contexts/AdminContext";
 function DashboardHeader() {
+  const {adminData}=useAdminContext();
   const handlerLogOut=async()=>{
 
     const data=(await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/logout`)).data;;
@@ -24,34 +27,36 @@ function DashboardHeader() {
     }
 
   }
+  const image=adminData?.admin[0].profile_image;
+console.log(adminData,"this is admin data");
   return (
     <div>
       <div className="border-b shadow-md flex justify-between  items-center gap-1 p-2">
         <SidebarTrigger  size={'lg'}/>
 
         <div className=" flex gap-2 justify-center items-center">
-            <div className="bg-white/20 flex gap-1 backdrop-blur-sm rounded-xl p-3">
+            {/* <div className="bg-white/20 flex gap-1 backdrop-blur-sm rounded-xl p-3">
               <Bell className="w-6 h-6" />
               <span className=" text-sm  rounded-[5px] w-[10px] h-[10px] ">2</span>
-            </div>
+            </div> */}
             <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button className="bg-white/20 backdrop-blur-sm rounded-xl p-3">
                 <Image
                 height={32}
                 width={32}
-                  src="https://github.com/shadcn.png"
+                  src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/admin/${image}`}
                   alt="avatar"
                   className="w-8 h-8 rounded-full"
                 />
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              {/* <DropdownMenuLabel>Account</DropdownMenuLabel> */}
+               <Link className=" cursor-pointer"  href={"/dashboard/profile"}><DropdownMenuItem className=" cursor-pointer">Profile</DropdownMenuItem></Link>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Team</DropdownMenuItem>
-              <DropdownMenuItem>Billing</DropdownMenuItem>
+               {/* <Link className=" cursor-pointer"  href={"/dashboard/settings"}><DropdownMenuItem className=" cursor-pointer">Settings</DropdownMenuItem></Link> */}
+              {/* <DropdownMenuItem>Billing</DropdownMenuItem> */}
               <DropdownMenuItem 
               className="cursor-pointer"
               onClick={() => {
