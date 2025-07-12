@@ -28,9 +28,9 @@ use App\Http\Controllers\AdminProfileController;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
-Route::post('/signup', [AdminController::class, 'register'])->name('api.signup');
 Route::group(['middleware' => 'auth:sanctum'], function () {
-// admin profile update 
+  // admin profile update 
+  Route::post('/signup', [AdminController::class, 'register'])->name('api.signup');
 // Route::get('/profile', [AdminProfileController::class, 'show'])->name('api.profile');
 // Route::post('/profileData/{id}', [AdminProfileController::class, 'update'])->name('api.profile.update');
 // Route::put('/profile-image', [AdminProfileController::class, 'changeImage'])->name('api.change-email');
