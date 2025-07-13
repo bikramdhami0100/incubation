@@ -141,6 +141,9 @@ const GalleryPage: React.FC = () => {
       const res = await axios.get(`${API_URL}/gallery?page=${currentPage}`);
       return res.data;
     },
+    // select: (data) => {
+    // console.log(data)
+    // },
     // staleTime: 5 * 60 * 1000, // 5 minutes
     // keepPreviousData: true,
   });
@@ -177,26 +180,26 @@ const GalleryPage: React.FC = () => {
     );
   }
 
-  if (isError) {
-    return (
-      <div className="flex flex-col items-center justify-center h-64 text-red-600">
-        <svg
-          className="w-12 h-12 mb-2"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 8v4m0 4h.01m-6.938 4h13.856c1.054 0 1.918-.816 1.994-1.87L21 4.87C20.918 3.816 20.054 3 19 3H5c-1.054 0-1.918.816-1.994 1.87L3 20.13c.082 1.054.946 1.87 2 1.87z"
-          />
-        </svg>
-        <p className="font-medium">Something went wrong. Please try again.</p>
-      </div>
-    );
-  }
+  // if (isError) {
+  //   return (
+  //     <div className="flex flex-col items-center justify-center h-64 text-red-600">
+  //       <svg
+  //         className="w-12 h-12 mb-2"
+  //         fill="none"
+  //         stroke="currentColor"
+  //         strokeWidth="2"
+  //         viewBox="0 0 24 24"
+  //       >
+  //         <path
+  //           strokeLinecap="round"
+  //           strokeLinejoin="round"
+  //           d="M12 8v4m0 4h.01m-6.938 4h13.856c1.054 0 1.918-.816 1.994-1.87L21 4.87C20.918 3.816 20.054 3 19 3H5c-1.054 0-1.918.816-1.994 1.87L3 20.13c.082 1.054.946 1.87 2 1.87z"
+  //         />
+  //       </svg>
+  //       <p className="font-medium">Something went wrong. Please try again.</p>
+  //     </div>
+  //   );
+  // }
  const handleDelete = async (item: GalleryItem) => {
 
   try {

@@ -93,21 +93,7 @@ class GalleryImageController extends Controller
 
      public function update(Request $request, $id)
     {
-        // For robustness, always validate
-        // $validator = Validator::make($request->all(), [
-        //     'title' => 'required|string|max:255',
-        //     'description' => 'nullable|string',
-        //     'imgcategory_id' => 'required|integer|exists:categories,id',
-        //     'newImages' => 'nullable|array',
-        //     'newImages.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-        //     'imagesToDelete' => 'nullable|array',
-        //     'imagesToDelete.*' => 'string',
-        // ]);
-
-        // if ($validator->fails()) {
-        //     return response()->json(['errors' => $validator->errors()], 422);
-        // }
-
+      
         // 1. Find the gallery item
         $imageGallery = GalleryImage::findOrFail($id);
         

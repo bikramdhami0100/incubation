@@ -116,9 +116,9 @@ Route::get('/committee', [CommitteeController::class, 'index'])->name('api.commi
 
 //Gallery CRUD API routes
 Route::get('/gallery', [GalleryImageController::class, 'index'])->name('api.gallery');
-// Route::post('/gallery', [GalleryImageController::class, 'store'])->name('api.gallery');
-// Route::put('/gallery/{id}', [GalleryImageController::class, 'update'])->name('api.gallery.update');
-// Route::delete('/gallery/{id}', [GalleryImageController::class, 'destroy'])->name('api.gallery.destroy');
+// Route::post('/gallery', [i ::class, 'store'])->name('api.gallery');
+// Route::put('/gallery/{id}', [i ::class, 'update'])->name('api.gallery.update');
+// Route::delete('/gallery/{id}', [i ::class, 'destroy'])->name('api.gallery.destroy');
 
 //Send email from frontend
 // Route::post('/send-email', [AdminController::class, 'sendEmail'])->name('api.send-email');
