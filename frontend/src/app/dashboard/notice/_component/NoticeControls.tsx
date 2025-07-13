@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Search, Filter, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NoticeItem } from "../notice_type/notice";
@@ -19,20 +19,29 @@ const NoticeControls: React.FC<ControlsProps> = ({
   setSelectedCategory,
   setIsEditModelOpen,
   categories,
-}) => (
+}) =>{
+  const [Data,setData]=useState("");
+  const handlerShowData = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSearchTerm(Data);
+    // console.log(Data);
+  }
+   return(
   <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 mb-8">
-    <div className="flex flex-col lg:flex-row gap-4">
+    <div  className="flex flex-col lg:flex-row gap-4">
       <div className="flex-1">
-        <div className="relative">
+        <form onClick={handlerShowData} className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
           <input
             type="text"
             placeholder="Search notices..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            // value={searchTerm}
+            defaultValue={searchTerm}
+            onChange={(e) => setData(e.target.value)}
             className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
-        </div>
+          {/* <input type="button" value="Search" onClick={handlerShowData} className="hidden " /> */}
+        </form>
       </div>
       <div className="flex flex-wrap items-center gap-2">
         <Filter className="text-gray-400 w-5 h-5" />
@@ -55,5 +64,5 @@ const NoticeControls: React.FC<ControlsProps> = ({
     </div>
   </div>
 );
-
+}
 export default NoticeControls;

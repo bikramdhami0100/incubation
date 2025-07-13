@@ -15,7 +15,7 @@ function DashboardProvider({ children }: { children: React.ReactNode }) {
         <div className="sticky top-0 z-30 backdrop-blur-2xl">
           <DashboardHeader />
         </div>
-        <div className="">{children}</div>
+        <div>{children}</div>
       </div>
     </SidebarProvider>
     </AdminContextProvider>

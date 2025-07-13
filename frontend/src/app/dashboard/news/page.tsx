@@ -89,9 +89,9 @@ const AdminNewsDashboard: React.FC = () => {
 // When refetchInterval changes to true, data will be refetched every 600ms
 // When false, automatic refetching is disabled
   const { data: queryNews ,isLoading ,isError} = useQuery({
-  queryKey: ['news'],
+  queryKey: ['news',currentPage,searchTerm],
   queryFn: async () => {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/news?page=${currentPage}`);
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/news?search=${searchTerm}&page=${currentPage}`);
     return res.data as MockNewsDataType;
   },
   select: (data) => {
@@ -100,7 +100,7 @@ const AdminNewsDashboard: React.FC = () => {
   // (Optional) You can still use this to control refetch on focus
   refetchOnWindowFocus: false,
 });
-console.log(queryNews,'this is query news data');
+// console.log(queryNews,'this is query news data');
 
 
 

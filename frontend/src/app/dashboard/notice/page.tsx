@@ -30,9 +30,9 @@ const FWUNoticesPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const {data: realNoticeData, isLoading, isError } = useQuery<NoticeDataType>({
-    queryKey: ["notices"],
+    queryKey: ["notices",currentPage,searchTerm],
     queryFn: async (): Promise<NoticeDataType> => {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/notice`);
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/notice?search=${searchTerm}&page=${currentPage}`);
       return res.data as NoticeDataType;
     },
     select: (data) => {
@@ -42,13 +42,13 @@ const FWUNoticesPage: React.FC = () => {
 
   const filteredNotices = realNoticeData?.data
     ? realNoticeData.data.filter((item: NoticeItem) => {
-        const matchesSearch =
-          item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.description.toLowerCase().includes(searchTerm.toLowerCase());
+        // const matchesSearch =
+          // item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          // item.description.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesCategory =
           selectedCategory === "all" ||
           item.title.toLowerCase().includes(selectedCategory.toLowerCase());
-        return matchesSearch && matchesCategory;
+        return    matchesCategory;
       })
     : [];
 
