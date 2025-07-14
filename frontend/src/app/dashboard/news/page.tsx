@@ -199,8 +199,7 @@ const categories: string[] = [
             color="bg-gradient-to-br from-orange-500 to-orange-600"
           />
         </div>
-
-           
+        
         {/* Controls */}
          <Controls  searchTerm={searchTerm} setSearchTerm={setSearchTerm} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} categories={categories} />
         {/* News Table */}

@@ -76,13 +76,29 @@ export default function NewsPage() {
   // const {newsData}=useContext(AllDataContext);
   // console.log(newsData,"newsData");
 
-  console.log(searchTerm, "searchTerm");
+  // console.log(searchTerm, "searchTerm");
 
   // Extract unique categories for filtering
-  const uniqueCategories = Array.from(
-    new Set(apiResponse?.data?.map((n) => n.category) || [])
-  ).sort();
+  // const uniqueCategories = Array.from(
+  //   new Set(apiResponse?.data?.map((n) => n.category) || [])
+  // ).sort();
+ const uniqueCategories=[
+    "event",
+    "announcement",
+    "research",
+    "startup",
+    "seminar",
+    "funding",
+    "training",
+    "achievement",
+    "workshop",
+  ]
 
+  // console.log(apiResponse?.data,"apiResponse?.data");
+  // const availableImages=apiResponse?.data?.map((item)=>{
+  //   console.log(item.news_photo);
+
+  // })
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     setCurrentPage(1);
@@ -164,7 +180,7 @@ export default function NewsPage() {
       item?.title?.toLowerCase().includes(searchTerm?.toLowerCase())
     );
 
-  console.log(searchTerm, "searchTerm");
+  // console.log(searchTerm, "searchTerm");
   return (
     <main className="bg-gray-100">
       {/* Hero Section with Search */}
