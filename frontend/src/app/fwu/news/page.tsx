@@ -249,7 +249,7 @@ export default function NewsPage() {
                         category: item.category,
                         summary: item.description,
                         slug: item.slug || generateSlug(item.title),
-                        imageUrl: item.imageUrl,
+                        imageUrl:item.news_photo?`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/news/`+item.news_photo:"",
                       }}
                       // index={index}
                     />

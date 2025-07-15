@@ -40,7 +40,21 @@ export default function NoticeListItem({ notice, index }: NoticeListItemProps) {
   const isLongDescription = displayDescription.length > 180;
 
   const handleDownload = () => {
-    if (notice.fileUrl) window.open(notice.fileUrl, "_blank");
+     // direct download 
+     // direct download pdf files 
+    if (notice.file) {
+      console.log(notice.file);
+      const createUrl = `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/notices/${notice.file}`;
+      const link = document.createElement("a");
+      link.href = createUrl;
+      link.download = notice.title;
+     link.target = "_blank";
+      link.click();
+    } else if(notice.fileUrl && typeof window !== "undefined") {
+      window.open(notice.fileUrl, "_blank");
+    }
+
+    // if (notice.fileUrl) window.open(notice.fileUrl, "_blank");
   };
 
   const handleShowPdf = () => {
@@ -48,13 +62,23 @@ export default function NoticeListItem({ notice, index }: NoticeListItemProps) {
   };
 
 const gradientBackgrounds = {
-  sunset: "bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500",
-  ocean: "bg-gradient-to-r from-blue-500 via-teal-400 to-green-500",
-  sky: "bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500",
-  fire: "bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500",
-  forest: "bg-gradient-to-r from-green-600 via-emerald-500 to-lime-400",
-  violet: "bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500"
+  indigoBlush: "bg-gradient-to-r from-indigo-300 via-violet-300 to-purple-300",
+  tealMist: "bg-gradient-to-r from-teal-300 via-emerald-300 to-green-300",
+  coralBloom: "bg-gradient-to-r from-rose-300 via-orange-300 to-amber-300",
+  lavenderSky: "bg-gradient-to-r from-purple-300 via-pink-300 to-rose-300",
+  skyWave: "bg-gradient-to-r from-sky-300 via-cyan-300 to-blue-300",
+  goldenSand: "bg-gradient-to-r from-yellow-300 via-amber-300 to-orange-300",
+  sageMint: "bg-gradient-to-r from-lime-300 via-green-300 to-emerald-300",
+  clayStone: "bg-gradient-to-r from-slate-300 via-gray-300 to-neutral-300",
+  duskPeach: "bg-gradient-to-r from-pink-300 via-rose-300 to-orange-300",
+  calmSea: "bg-gradient-to-r from-blue-300 via-teal-300 to-cyan-300",
+  ivoryBlush: "bg-gradient-to-r from-amber-200 via-yellow-200 to-pink-200",
+  fogLilac: "bg-gradient-to-r from-fuchsia-300 via-violet-300 to-pink-300",
+  harvestTone: "bg-gradient-to-r from-orange-300 via-yellow-300 to-lime-300",
+  quietForest: "bg-gradient-to-r from-emerald-300 via-teal-300 to-green-300",
+  lakeBreeze: "bg-gradient-to-r from-blue-200 via-sky-300 to-teal-300"
 } as const;
+
 
 type GradientKey = keyof typeof gradientBackgrounds;
 
