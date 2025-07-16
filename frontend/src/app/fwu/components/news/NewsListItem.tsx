@@ -41,12 +41,12 @@ const NewsListItem: React.FC<NewsListItemProps> = ({ item }) => {
   };
   // console.log(item)
   return (
-    <article className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-300 overflow-hidden">
+    <article className="group bg-white/20 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-300 overflow-hidden">
       {/* Card Header */}
       <div
-        className={`p-6 sm:p-8 text-white relative overflow-hidden ${
+        className={`p-6 sm:p-8 transition-all duration-500 ease-in-out  text-white  relative overflow-hidden ${
           item.imageUrl && !item.imageUrl?.endsWith("null")
-            ? ""
+            ? " hover:scale-105"
             : `bg-gradient-to-br ${getGradientColors(item.category)}`
         }`}
         style={
@@ -56,16 +56,21 @@ const NewsListItem: React.FC<NewsListItemProps> = ({ item }) => {
                 backgroundSize: "cover",
                 filter:"brightness(100%)",
                 backgroundPosition: "center",
+                 
               }
             : undefined
         }
       >
-        <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -translate-y-16 translate-x-16"></div>
+        <div className="absolute inset-0 bg-black/30 bg-opacity-50"></div>
+                
+        {/* <div className="absolute top-0 right-0 w-32 h-32 bg-black/40 opacity-10 rounded-full translate-y-16 translate-x-16"></div> */}
+
+
         <div className="relative">
           {/* Top Row: Title and Category */}
           <div className="flex items-start justify-between mb-6">
             <h2 className="text-xl md:text-2xl font-bold leading-tight flex-1 pr-4">
-              <Link href={`/fwu/news/${item.id}`} className="hover:underline">
+              <Link href={`/fwu/news/${item.id}`} className="hover:underline  leading-snug break-words line-clamp-3 text-ellipsis ">
                 {item.title}
               </Link>
             </h2>

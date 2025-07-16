@@ -73,15 +73,7 @@ export default function NewsPage() {
       ).data;
     },
   });
-  // const {newsData}=useContext(AllDataContext);
-  // console.log(newsData,"newsData");
 
-  // console.log(searchTerm, "searchTerm");
-
-  // Extract unique categories for filtering
-  // const uniqueCategories = Array.from(
-  //   new Set(apiResponse?.data?.map((n) => n.category) || [])
-  // ).sort();
  const uniqueCategories=[
     "event",
     "announcement",

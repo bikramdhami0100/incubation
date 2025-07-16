@@ -404,7 +404,7 @@ const GalleryPage: React.FC = () => {
                         )}
                       </td>
                       <td className="px-6 py-4 font-medium text-gray-900 max-w-sm">
-                        <div className="font-bold">{item.title}</div>
+                        <div className="font-bold w-64 leading-snug break-words line-clamp-3 text-ellipsis overflow-hidden">{item.title}</div>
                         <p className="font-normal text-gray-500 truncate">
                           {item.description}
                         </p>

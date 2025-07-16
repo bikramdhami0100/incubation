@@ -250,19 +250,6 @@ export default function GalleryPage() {
   }
 
   // No data state
-  // if (!galleryData || galleryData.data.length === 0) {
-  //   return (
-  //     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center">
-  //       <div className="text-center">
-  //         <div className="text-gray-400 text-6xl mb-6">📷</div>
-  //         <h2 className="text-3xl font-bold text-gray-700 mb-4">
-  //           No Gallery Items
-  //         </h2>
-  //         <p className="text-gray-600">No gallery collections found.</p>
-  //       </div>
-  //     </div>
-  //   );
-  // }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
@@ -417,7 +404,7 @@ export default function GalleryPage() {
                         quality={100}
                         height={300}
                         width={400}
-                        src={`http://127.0.0.1:8000/storage/gallery/${
+                        src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/storage/gallery/${
                           item.images[item.images.length - 1]
                         }`}
                         alt={item.title}
@@ -437,7 +424,7 @@ export default function GalleryPage() {
                             quality={100}
                             height={150}
                             width={200}
-                            src={`http://127.0.0.1:8000/storage/gallery/${image}`}
+                            src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/gallery/${image}`}
                             alt={`${item.title} - Image ${imageIndex + 1}`}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                           />
@@ -464,7 +451,7 @@ export default function GalleryPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl  font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                     {item.title}
                   </h3>
 
@@ -544,7 +531,7 @@ export default function GalleryPage() {
             )}
 
             {/* Image */}
-            <div className="relative h-[75vh] bg-black/20 rounded-xl overflow-hidden backdrop-blur-sm">
+            <div className="relative h-[75vh] bg-black/60 rounded-xl overflow-hidden backdrop-blur-sm">
               <Image
                 height={600}
                 width={800}
@@ -561,7 +548,7 @@ export default function GalleryPage() {
             </div>
 
             {/* Image info */}
-            <div className="text-white text-center mt-6 bg-black/30 backdrop-blur-sm rounded-xl p-6">
+            <div className="text-white text-center mt-6 bg-black/60 backdrop-blur-sm rounded-xl p-6">
               <h3 className="text-2xl font-bold mb-2">
                 {allImages[currentImageIndex]?.title}
               </h3>

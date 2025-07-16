@@ -76,7 +76,7 @@ const NewsTable: React.FC<NewsTableProps> = ({ news,path}:NewsTableProps) => {
                      />
                   {/* </div> */}
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-sm font-semibold text-gray-900 truncate group-hover:text-blue-600 transition-colors">
+                    <h4 className="w-64 leading-snug break-words line-clamp-3 text-ellipsis overflow-hidden">
                       {item.title}
                     </h4>
                     <p className="text-sm text-gray-500 truncate max-w-xs">

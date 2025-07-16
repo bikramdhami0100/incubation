@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import CreateNewsModal from "./CreateNewsModal";
 function Controls({
-  searchTerm,
+  // searchTerm,
   setSearchTerm,
   selectedCategory,
   setSelectedCategory,
@@ -24,24 +24,29 @@ function Controls({
   categories: string[] | undefined;
 }) {
   const [open, setOpen] = useState<boolean>(false);
+  const [searchData,setSearchData]=useState("");
+  const handlerSubmitData=(e: React.FormEvent)=>{
+   e.preventDefault();
+   setSearchTerm(searchData);
+  }
   return (
     <>
       <div className="bg-white rounded-2xl p-6 shadow-lg mb-8 border border-gray-100">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 flex-1">
             {/* Search */}
-            <div className="relative flex-1 max-w-md">
+            <form onSubmit={handlerSubmitData} className="relative flex-1 max-w-md">
               <Search className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search news..."
-                value={searchTerm}
+                defaultValue={searchData}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setSearchTerm(e.target.value)
+                  setSearchData(e.target.value)
                 }
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
               />
-            </div>
+            </form>
 
             {/* Category Filter */}
             <div className="relative">

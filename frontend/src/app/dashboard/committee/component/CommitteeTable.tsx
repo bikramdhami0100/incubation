@@ -110,12 +110,10 @@ const CommitteeTable: React.FC<CommitteeTableProps> = ({
                         )}
                       </div>
                       <div className="ml-4">
-                        <div className="text-sm font-semibold text-gray-900">
+                        <div className="text-sm w-64 leading-snug break-words line-clamp-3 text-ellipsis overflow-hidden font-semibold text-gray-900">
                           {committee.name}
                         </div>
-                        {/* <div className="text-sm text-gray-500">
-                          ID: {committee.id}
-                        </div> */}
+                        
                       </div>
                     </div>
                   </td>

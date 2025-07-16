@@ -121,7 +121,7 @@ const getRelativeTime = (dateString: string) => {
                     backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/committees/${memberPhotos[currentPhotoIndex].photo})`
                   }}
                 />
-                <div className="absolute inset-0 bg-black/60 bg-opacity-50"></div>
+                <div className="absolute inset-0 bg-black/30 bg-opacity-50"></div>
                 
                 {/* Photo indicators */}
                 {memberPhotos.length > 1 && (
@@ -222,13 +222,13 @@ const getRelativeTime = (dateString: string) => {
         {hasPhotos && (
           <>
             <div 
-              className="absolute  bg-cover bg-center   inset-0   transition-all duration-1000 ease-in-out"
+              className="absolute  bg-cover bg-center inset-0   transition-all duration-1000 ease-in-out"
               style={{
        
                 backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/committees/${memberPhotos[currentPhotoIndex].photo})`
               }}
             />
-            <div className="absolute inset-0 bg-black/60 bg-opacity-50"></div>
+            <div className="absolute inset-0 bg-black/30 bg-opacity-50"></div>
             
             {/* Photo indicators */}
             {memberPhotos.length > 1 && (
@@ -256,7 +256,7 @@ const getRelativeTime = (dateString: string) => {
         
         <div className="relative z-10">
           <div className="flex items-start justify-between mb-6">
-            <h3 className="text-xl font-bold leading-tight flex-1 pr-4">
+            <h3 className="text-xl font-bold w-64 leading-snug break-words line-clamp-3 text-ellipsis overflow-hidden  flex-1 pr-4">
               {committee.name}
             </h3>
             <div className=" border  bg-opacity-20 px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap">
