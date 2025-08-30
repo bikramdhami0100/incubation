@@ -1,12 +1,11 @@
 "use client"
 import React, { useState, useEffect } from 'react'
-import { Eye, EyeOff, Mail, Lock, ArrowRight, Zap, Shield, Sparkles } from 'lucide-react'
+import { Eye, EyeOff, Mail, Lock, ArrowRight, Zap, Shield } from 'lucide-react'
 import Image from 'next/image'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { toast } from "sonner"
 import Link from 'next/link'
-// import { LoginContext, LoginContextType } from '../fwucontext/LoginContext'
 import { setCookie } from '../fwucontext/CustomCookies'
 
 function Login() {
@@ -75,43 +74,26 @@ function Login() {
             }}
           ></div>
         ))}
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={`sparkle-${i}`}
-            className="absolute text-white/70"
-            style={{
-              top: `${20 + Math.random() * 60}%`,
-              left: `${20 + Math.random() * 60}%`,
-              animation: `sparkle-twinkle ${2 + Math.random() * 3}s ease-in-out infinite ${Math.random() * 2}s`
-            }}
-          >
-            <Sparkles size={12 + Math.random() * 8} />
-          </div>
-        ))}
+       
       </div>
 
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-md mx-auto flex flex-col items-center">
         {/* Logo and Title */}
         <div className="flex flex-col items-center text-center mb-8 animate-fade-in-up">
-            <Link href="/" className="mb-6 group">
-                 <div className="relative w-20 h-20 rounded-2xl flex items-center justify-center shadow-2xl bg-white/30 transition-all duration-500 group-hover:scale-110">
+            <Link href="/" className="group">
+                 {/* <div className="relative w-20 h-20 rounded-2xl flex items-center justify-center shadow-2xl bg-white/30 transition-all duration-500 group-hover:scale-110"> */}
                     <Image
-                        src={"/circlelogo.png"}
+                        src={"/logo.png"}
                         alt="Company Logo"
-                        width={80}
-                        height={80}
-                        className="h-16 w-16 object-contain rounded-lg relative z-10"
+                        width={200}
+                        height={200}
+                        className=" w-full h-full object-contain rounded-full relative z-10"
                         priority
                     />
-                </div>
+                {/* </div> */}
             </Link>
-          <h1 className="text-4xl font-bold text-slate-800">
-            Welcome Back
-          </h1>
-          <p className="mt-2 text-lg text-slate-600">
-            Sign in to access your account.
-          </p>
+         
         </div>
 
         {/* Login Form Card */}
